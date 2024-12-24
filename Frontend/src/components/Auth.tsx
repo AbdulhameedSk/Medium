@@ -99,4 +99,3 @@ function LabelledInput ({label, placeholder, onChange, type = "text"}:
         </div>
     )
 }
-
