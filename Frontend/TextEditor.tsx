@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './styles.css';
@@ -12,6 +12,9 @@ interface ReactQuillWrapperState {
 }
 
 export class ReactQuillWrapper extends Component<ReactQuillWrapperProps, ReactQuillWrapperState> {
+  modules: any;
+  formats: string[];
+
   constructor(props: ReactQuillWrapperProps) {
     super(props);
     this.state = {
