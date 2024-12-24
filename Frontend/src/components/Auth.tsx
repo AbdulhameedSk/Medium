@@ -10,7 +10,7 @@ export const Auth = ({type}:{type:"signup" | "signin"}) => {
         email: "",
         password: ""
     });
-    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    async function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
         console.log(postInputs);
         try{
@@ -73,7 +73,10 @@ export const Auth = ({type}:{type:"signup" | "signin"}) => {
                         password: e.target.value})
                 }}/>
                 <div className="py-3">
-                <SubmitButton label={type === "signup" ? "Sign Up": "Sign In"} onClick={handleSubmit} />
+                    
+                <button type="button" onClick={handleSubmit}  className="  bg-black text-white py-2 px-4 rounded-lg w-full hover:bg-blue-600">
+                    {type === "signup" ? "Sign Up" : "Sign In"}
+                </button>
                 </div>
                 </div></div>
             </div>
@@ -97,11 +100,3 @@ function LabelledInput ({label, placeholder, onChange, type = "text"}:
     )
 }
 
-
-function SubmitButton({ label, onClick }: { label: string, onClick: (e: React.MouseEvent<HTMLButtonElement>) => void }) {
-    return (
-        <button type="submit" onClick={onClick} className="bg-black text-white py-2 px-4 rounded-lg w-full hover:bg-blue-600">
-            {label}
-        </button>
-    );
-}
